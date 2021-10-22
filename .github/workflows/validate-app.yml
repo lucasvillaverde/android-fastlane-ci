@@ -4,7 +4,7 @@ on:
     branches:
       - 'master'
 jobs:
-  build:
+  lint-and-test:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,8 +13,8 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
       - name: "Run linter"
-        run: fastlane lint
+        run: bundle exec fastlane lint
       - name: "Run unit tests"
-        run: fastlane test
+        run: bundle exec fastlane test
       - name: "Run linter and unit tests"
-        run: fastlane test_and_lint
+        run: bundle exec fastlane test_and_lint
