@@ -31,6 +31,11 @@ Run Linter Verification
 fastlane android test_and_lint
 ```
 Run Test and Linter
+### android generate_apk
+```
+fastlane android generate_apk
+```
+Generate APK
 ### android beta
 ```
 fastlane android beta

@@ -18,3 +18,14 @@ jobs:
         run: fastlane test
       - name: "Run linter and unit tests"
         run: fastlane test_and_lint
+  generate-apk:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Building the app"
+        run: fastlane generate_apk
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: apk_path.txt
+      - run: rm apk_path.txt

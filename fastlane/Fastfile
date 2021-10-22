@@ -32,6 +32,18 @@ platform :android do
     gradle(task: "test")
   end
 
+  desc "Generate APK"
+  lane :generate_apk do
+    gradle(
+      task: "assemble",
+      build_type: "Debug"
+    )
+    sh("touch", "../apk_path.txt")
+    ENV["APK_PATH"]=lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+    output = ENV["APK_PATH"]
+    sh "echo " + output + " >" + "../apk_path.txt"
+  end
+
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
     gradle(task: "clean assembleRelease")
