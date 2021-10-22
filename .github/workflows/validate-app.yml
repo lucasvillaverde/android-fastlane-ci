@@ -19,8 +19,10 @@ jobs:
         run: fastlane lint
       - name: "Building the app"
         run: fastlane generate_apk
+      - run: echo "::set-output name=APK_PATH::$(cat apk_path.txt)"
+        id: apk-building
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: ./apk_path.txt
+          name: test-artifact-app
+          path: ${{ steps.apk-building.outputs.APK_PATH }}
       - run: rm ./apk_path.txt
