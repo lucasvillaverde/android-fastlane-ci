@@ -43,5 +43,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: apk_path.txt
-      - run: rm apk_path.txt
+          path: ./apk_path.txt
+      - run: rm ./apk_path.txt
