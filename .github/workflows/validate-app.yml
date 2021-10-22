@@ -21,6 +21,7 @@ jobs:
   generate-apk:
     runs-on: macOS-latest
     steps:
+      - uses: actions/setup-java@v2
       - uses: actions/checkout@v2
       - name: "Building the app"
         run: fastlane generate_apk
