@@ -13,3 +13,6 @@ jobs:
       - name: "Run unit tests"
         uses: actions/checkout@v2
         run: fastlane test
+      - name: "Run linter and unit tests"
+        uses: actions/checkout@v2
+        run: fastlane test_and_lint
