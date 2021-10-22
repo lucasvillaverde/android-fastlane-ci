@@ -13,8 +13,8 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
       - name: "Run linter"
-        run: bundle exec fastlane lint
+        run: fastlane lint
       - name: "Run unit tests"
-        run: bundle exec fastlane test
+        run: fastlane test
       - name: "Run linter and unit tests"
-        run: bundle exec fastlane test_and_lint
+        run: fastlane test_and_lint
