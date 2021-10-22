@@ -1,0 +1,15 @@
+name: validate-app
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - name: "Run linter"
+        uses: actions/checkout@v2
+        run: fastlane lint
+      - name: "Run unit tests"
+        uses: actions/checkout@v2
+        run: fastlane test
